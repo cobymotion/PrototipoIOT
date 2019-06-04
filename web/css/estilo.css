@@ -1,0 +1,27 @@
+/*
+    Luis Cobián
+    Estilos para proyecto IOT
+    1 de junio 2019
+*/
+
+/*
+   Estilos de tamaño del estacionamiento
+   borde y el fondo que se utilizo
+ */
+#canvasAnimation {
+    width:800px;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #d9d9d9;
+    background-image: url('../imgs/fondo.png')
+}
+
+
+/*
+    Formato para el encabezado
+    Centrado un poco mas abajo
+ */
+h1 {
+    text-align:center; margin-top:20px
+}

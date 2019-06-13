@@ -11,6 +11,8 @@
     <canvas id="canvasAnimation">
         No se puede visualizar
     </canvas>
+
+    <p><a href="https://github.com/cobymotion/PrototipoIOT">Github</a></p>
 </body>
 
 <script src="js/jquery-3.4.1.min.js"></script>

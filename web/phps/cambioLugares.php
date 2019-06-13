@@ -1,15 +1,30 @@
 <?php
 $resultado['estado'] = "Error";
-$datos = json_decode(file_get_contents("php://input"));
+///$datos = json_decode(file_get_contents("php://input"));
 
-require("connect.php");
-require("Conexion.php");
-require("Lugares.php");
+if(isset($_GET['lugar']) && isset($_GET['estado'])) {
 
-$conn = new Conexion($conData);
+    require("connect.php");
+    require("Conexion.php");
+    require("Lugares.php");
 
-$c = new Lugares($conn->getConnection());
+    $conn = new Conexion($conData);
 
-$resultado = $c->setOcupacion($datos->idLugar, $datos->ocupacion);
+    $c = new Lugares($conn->getConnection());
+    //$idlugar = (int)$datos->idLugar;
+    //$ocupacion = (int)$datos->ocupacion;
 
-echo json_encode($resultado);
+    $idlugar = (int)$_GET['lugar'];
+    $ocupacion = (int)$_GET['estado'];
+
+    $file = fopen("archivo.txt", "w");
+
+    fwrite($file, "Datos: idLugar: " . $idlugar . " Ocupacion: " . $ocupacion . PHP_EOL);
+    //fwrite($file, "Datos: idLugar: " . $datos->idLugar . " Ocupacion: " . $datos->ocupacion . PHP_EOL);
+
+    fclose($file);
+
+    $resultado = $c->setOcupacion($idlugar, $ocupacion);
+
+    echo json_encode($resultado);
+}
